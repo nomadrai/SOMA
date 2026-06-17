@@ -6,6 +6,8 @@
 # Project Memory (not version-controlled)
 # ----------------------------------------------------------
 CONTEXT.md
+implementation_plan.md
+task.md
 
 # ----------------------------------------------------------
 # Environment Variables
