@@ -10,7 +10,7 @@ WORKDIR /app
 
 # Copy and install python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --default-timeout=1000 --retries 10 -r requirements.txt
 
 # Keep the container running in dev mode
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
