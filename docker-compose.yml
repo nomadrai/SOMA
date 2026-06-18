@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./tests:/app/tests
+    environment:
+      - ENV=development
+    env_file:
+      - .env
+    # Optional: For smooth restarts on local dev
+    tty: true
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      # Hide the local node_modules so that the container uses its own
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
