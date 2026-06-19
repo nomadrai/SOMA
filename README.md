@@ -254,15 +254,18 @@ SOMA/
 
 > **Important:** All input datasets must be pre-processed into **Cloud-Optimized GeoTIFFs (COGs)** before ingestion. The pipeline does not parse raw PDS4 archives.
 
+For a comprehensive guide on exactly what datasets to download, where to find them, and how to pre-process them, please refer to the **[Phase 0: Data Acquisition & Derivation Guide](data_download.md)** (`data_download.md`).
+
 Use QGIS, MIDAS, or GDAL CLI to convert raw data, then place them in:
 
 ```
 data/raw/dfsar/    # DFSAR radar products
 data/raw/ohrc/     # OHRC imagery
 data/raw/dem/      # Digital Elevation Models
+data/raw/psr/      # Pre-computed PSR maps
 ```
 
-These directories are volume-mounted into the Docker containers and are gitignored to keep the repository lightweight.
+These directories are volume-mounted into the Docker containers and are gitignored to keep the repository lightweight. This means **raw datasets will not be tracked in version control**, so you and your collaborators will each need to download the data locally using the guide.
 
 ---
 
