@@ -1,5 +1,8 @@
+# pyrefly: ignore [missing-import]
 from fastapi import FastAPI
+# pyrefly: ignore [missing-import]
 from fastapi.middleware.cors import CORSMiddleware
+# pyrefly: ignore [missing-import]
 from titiler.core.factory import TilerFactory
 
 app = FastAPI(
@@ -32,5 +35,6 @@ cog = TilerFactory()
 app.include_router(cog.router, prefix="/api/tiles", tags=["Tiles"])
 
 if __name__ == "__main__":
+    # pyrefly: ignore [missing-import]
     import uvicorn
     uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000, reload=True)
