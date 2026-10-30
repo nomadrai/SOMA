@@ -299,7 +299,7 @@ Once the backend is running, the full interactive API documentation is available
 
 ## License
 
-This project is developed for a lunar exploration hackathon. License TBD.
+This project is developed for a lunar exploration hackathon and is licensed under the [MIT License](LICENSE).
 
 ---
 
